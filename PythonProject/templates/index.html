@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>地图</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='normalize.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='htmleaf-demo.css')}}" />
+	<link rel='stylesheet' href='http://fonts.googleapis.com/icon?family=Material+Icons' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='sidenav.css')}}" />
+</head>
+<body>
+	<div class="htmleaf-container" style="height: 100%; width: 100%;">
+			<div id="container">
+					<div class='info' style='min-width:15rem;z-index: 1000;float: right; display: none;'>
+							<p>
+								最小距离
+								<input type="text" style="width: 150px" name="distance" id="distance-input"/>
+								<input id="screen-distance-btn" type="button" value= "筛选" width="100"/>
+							</p>
+							<p>
+								<input id="show-line-btn" type="button" value= "显示距离"/>
+								<input id="hide-line-btn" type="button" value= "隐藏距离"/>
+							</p>
+							<p>
+								<input id="show-marker-label" type="button" value= "显示标签" width="100"/>
+								<input id="hide-marker-label" type="button" value= "隐藏标签" width="100"/>
+							</p>
+							<p>
+								每页点数<input type="text" style="width: 50px" name="pageSize" id="pageSize-input" value="2000"/>
+								<input id="point-pre-btn" type="button" value= "<前"/>
+								<span></span>
+								<input id="point-next-btn" type="button" value= "后>"/>
+							</p>
+							<p></p>
+							<p>信息</p>
+							<p><textarea readonly name="infoPoint" id="infoPoint"></textarea></p>
+					</div>
+					<div id='div1' style="height: 100%; width: 100%; position: absolute; top: 0;" >
+							<iframe id='main-content' frameborder='0' style="width: 90%; height: 100%; margin-left: 100px;" src="iframe/result.html"></iframe>
+					</div>
+					<div id='div2' style="height: 100%; width: 100%; position: absolute;">
+						2
+					</div>
+			</div>
+	</div>
+	<nav class="sidenav" data-sidenav data-sidenav-toggle="#sidenav-toggle">
+	    <ul class="sidenav-menu">
+	      <li>
+	        <a href="javascript:;" data-sidenav-dropdown-toggle class="active">
+	          <span class="sidenav-link-icon">
+	            <i class="material-icons">store</i>
+	          </span>
+	          <span class="sidenav-link-title">选项</span>
+	          <span class="sidenav-dropdown-icon show" data-sidenav-dropdown-icon>
+	            <i class="material-icons">arrow_drop_down</i>
+	          </span>
+	          <span class="sidenav-dropdown-icon" data-sidenav-dropdown-icon>
+	            <i class="material-icons">arrow_drop_up</i>
+	          </span>
+	        </a>
+
+	        <ul class="sidenav-dropdown" data-sidenav-dropdown>
+	          <li><a id="default-map">查询上传点位</a></li>
+	          <li><a id="fake-map">虚拟1</a></li>
+	          <li><a id="fakeb-map">虚拟2</a></li>
+	        </ul>
+	      </li>
+	    </ul>
+	</nav>
+
+	<a href="javascript:;" class="toggle" id="sidenav-toggle" style="color: rgba(0, 0, 0, 1)">
+		<i class="material-icons">menu</i>
+	</a>
+
+	<script src="{{url_for('static', filename='jquery-1.11.0.min.js')}}"></script>
+	<script src="{{url_for('static', filename='sidenav.js')}}"></script>
+	<script>
+		$('[data-sidenav]').sidenav();
+		$('#div1').css('display','block');
+		$('#div2').css('display','none');
+		$('#default-map').on('click', function(){
+			$('#main-content').attr('src','https://www.baidu.com');
+		});
+	</script>
+</body>
+</html>
