@@ -4,13 +4,13 @@ import os
 import platform
 import glob
 
-from FileSerice.BSTextFileService import BSTextFileService
+from FileService.FSTextFileService import FSTextFileService
 
 
-class BSFileFinderService(object):
+class FSFileFinderService(object):
     def __init__(self):
         self.allowedExtensions = set(['txt','gpx','ipa','xls','xlsx','csv']);
-        self.textService = BSTextFileService();
+        self.textService = FSTextFileService();
         
 ###############################目录函数###############################
     
@@ -107,4 +107,4 @@ class BSFileFinderService(object):
         return self.textService.write_json(filePath,content);
     
 
-sharedFileService = BSFileFinderService();
+sharedFileService = FSFileFinderService();

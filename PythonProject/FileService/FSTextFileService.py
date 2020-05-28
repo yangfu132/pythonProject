@@ -6,7 +6,7 @@ from _ast import Str
 import codecs
 import json
 
-class BSTextFileService(object):
+class FSTextFileService(object):
     
     def open_write_file(self,filePath):
         return codecs.open(filePath, 'a', encoding='utf-8');

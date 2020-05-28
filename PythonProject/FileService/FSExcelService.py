@@ -9,7 +9,7 @@ import xlrd
 import xlwt
 from array import array
 
-class BSExcel(object):
+class FSExcelService(object):
     '''定义一个excel类'''
 
     def __init__(self):
@@ -41,4 +41,4 @@ class BSExcel(object):
     def close(self,excelName):
         self.book.save(excelName)#保存到当前目录下
 
-excelHelper = BSExcel();
+sharedExcelService = FSExcelService();
